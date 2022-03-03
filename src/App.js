@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/Header/Header'
+import SimpleBottomNavigation from './components/MainNav'
 function App() {
   return (
-    <div className="App">
-     <span> Entertainment App</span>
+    <><Header /><div className="app">
+      Fayaz
     </div>
+    <SimpleBottomNavigation />
+    </>
   );
 }
 
