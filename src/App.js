@@ -14,12 +14,13 @@ function App() {
     <>
      <BrowserRouter>
     <Header /><div className="app">
+
       <Container> 
         <Routes>
-        <Route path = '/' component={Trending} exact/>
-          <Route path = '/movies' component={Movies}/>
-          <Route path = '/series' component={Series}/>
-          <Route path = '/search' component={Search}/>
+        <Route path = '/' element={<Trending/>} exact> </Route>
+          <Route path = '/movies' element={<Movies/>}> </Route>
+          <Route path = '/series' element={<Series/>}> </Route>
+          <Route path = '/search' element={<Search/>}> </Route>
         </Routes>
       </Container>
     </div>
