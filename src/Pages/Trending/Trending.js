@@ -1,10 +1,8 @@
 import axios  from "axios";
 import { useState, useEffect } from "react";
 import SingleContent from '../../components/SingleContent/SingleContent';
-import dotenv from 'dotenv';
 const Trending = () => {
-    dotenv.config();
-    console.log(process.env.REACT_APP_METEORITE_STRIKE_DATASET);
+    console.log(process.env.REACT_APP_API_KEY);
     const [content, setContent] = useState([]);
     const fetchTrending = async () => {
       await axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY}`).then((response) => {
