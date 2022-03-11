@@ -1,5 +1,6 @@
-import { img_300 } from "../../Config/Config";
-
+import { Badge } from "@mui/material";
+import { img_300,unavailable } from "../../Config/Config";
+import './SingleContent.css';
 
 const SingleContent = (
     {
@@ -13,10 +14,16 @@ const SingleContent = (
 ) => {
 
     return (
-        <div>
-            {title}
-            <img src={ `${img_300}/${poster}`}/>
+        <div className="media">
+            <Badge badgeContent={vote_average} color={vote_average > 6 ? "primary" : "secondary"}>
+            </Badge>
+            <img className="poster" src={ poster ? `${img_300}/${poster}` : unavailable} alt ={title}/>
+             <b className="title">{title}</b>
+             <span> {media_type === 'tv' ? " TV Series" : "Movie"} </span>
+             <span className="sunTitle">{date}</span>
+             
         </div>
+       
     );
 }
 
