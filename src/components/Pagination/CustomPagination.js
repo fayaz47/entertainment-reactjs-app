@@ -1,6 +1,6 @@
 import { Pagination } from "@mui/material";
 
-const CustomPagination = ({setPage,numberOfpages = 10}) => {
+const CustomPagination = ({setPage,numberOfPages = 10}) => {
     const handleChange = (page) => {
         setPage(page);
         window.scroll(0,0);
@@ -14,8 +14,10 @@ const CustomPagination = ({setPage,numberOfpages = 10}) => {
              marginTop: 10
          }}
         >
-         <Pagination count = {numberOfpages} 
-         onChange={(e) => handleChange(e.target.textContent)} />
+         <Pagination count = {numberOfPages} 
+         onChange={(e) => handleChange(e.target.textContent)} 
+         hideNextButton
+         hidePrevButton />
 
         </div>
      
