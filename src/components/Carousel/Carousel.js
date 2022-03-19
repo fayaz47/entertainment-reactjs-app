@@ -8,14 +8,10 @@ const handleDragStart = (e) => e.preventDefault();
 
 
 
-const Carousel = (media_type,id) => {
+const Carousel = ({media_type,id}) => {
     const [credits, setCredits] = React.useState();
 
-    // const items = [
-    //     <img src="path-to-img" onDragStart={handleDragStart} />,
-    //     <img src="path-to-img" onDragStart={handleDragStart} />,
-    //     <img src="path-to-img" onDragStart={handleDragStart} />,
-    //   ];
+
       const responsive = {
         0: {
           items: 3,
@@ -29,13 +25,13 @@ const Carousel = (media_type,id) => {
       };
       const items = credits?.map((c) => {
 
-      <div className='carouselItem'>
+      <div className="carouselItem">
       <img src= {c.profile_path ? `${img_300}/${c.profile_path}`: noPicture}
       alt ={c?.name}
       onDragStart = {handleDragStart}
       className= "carouselItem__img" 
       />
-      <b className='carouselItem__txt'>{c?.name}</b>
+      <b className="carouselItem__txt">{c?.name}</b>
       </div>
 
       });
@@ -47,7 +43,7 @@ const Carousel = (media_type,id) => {
     React.useEffect( () => {
         fetchCredits();
          // eslint-disable-next-line
-    },[credits]);
+    },[]);
   return (
     <AliceCarousel 
     autoPlay 

@@ -42,7 +42,7 @@ export default function TransitionsModal({children, media_type, id}) {
 
   const fetchVideo = async() => {
     const {data} = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
-    setVideo(data.restults[0]?.key); 
+    setVideo(data.results[0]?.key); 
 };
 
 React.useEffect( () =>
@@ -50,7 +50,7 @@ React.useEffect( () =>
     fetchData();
     fetchVideo();
     // eslint-disable-next-line
-    },[content,video]
+    },[]
 )
 
   return (
@@ -68,14 +68,7 @@ React.useEffect( () =>
         }}
       >
         <Fade in={open}>
-          {/* <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box> */}
+
          {content && (
           <div className={paper}>
           <div className='ContentModal'>
@@ -87,7 +80,7 @@ React.useEffect( () =>
           <img
           alt = {content.title || content.title}
           className = 'ContentModal__landscape'
-          src={content.poster_path ? `${img_500}/${content.poster_path}` : unavailable } />
+          src={content.backdrop_path ? `${img_500}/${content.backdrop_path}` : unavailable } />
           
           <div className='ContentModal__about'>
             <span className='ContentModal__title'>
